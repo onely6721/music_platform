@@ -1,0 +1,27 @@
+
+.player-control {
+    width: 60%;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: black;
+    width: 80%;
+    height: 4px;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #4c4c4c;
+    border-radius: 0.5rem;
+    height: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    background-color: #363636;
+    height: 6px;
+    width: 6px;
+    border-radius: 3px;
+    margin-top: -1px;
+}

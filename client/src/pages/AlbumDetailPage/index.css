@@ -1,0 +1,34 @@
+.album-detail{
+    color: white;
+    min-height: 100vh;
+    background: linear-gradient(#2b2b2b, #0e0e0e);
+}
+
+.album-head{
+    padding: 5% 5%;
+    display: flex;
+    flex-direction: row;
+}
+
+.album-detail-img {
+    width: 15%;
+    background-size: cover;
+}
+
+.album-detail-name {
+    margin-left: 20px;
+}
+
+.album-track-list {
+
+    padding:0 5% 0 5%;
+}
+.album-table-head {
+    padding:0 5% 0 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.column-title {
+    margin-left: 20px;
+}

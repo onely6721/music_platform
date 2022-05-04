@@ -1,0 +1,28 @@
+header {
+    width: 100vw;
+    height: 40px;
+    background: blue;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+ul {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+.logo {
+    color: white;
+}
+
+li {
+    display: inline;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}

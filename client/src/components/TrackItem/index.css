@@ -1,0 +1,34 @@
+.track-item {
+    padding: 4px;
+    height: 40px;
+    color: white;
+    vertical-align: middle !important;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.test {
+    display: flex;
+}
+
+.track-picture {
+    text-align: start;
+}
+
+
+.track-name {
+    text-align: start;
+}
+
+.track-album {
+    margin-top: 10px;
+}
+
+.track-action {
+    text-align: end;
+}
+
+#track-picture {
+    vertical-align: middle;
+}

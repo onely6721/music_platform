@@ -1,0 +1,35 @@
+.album-item{
+    width: 15%;
+    height: 220px;
+    background: #181818;
+    border-radius:4px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.album-item:hover{
+    background: #282828;
+}
+
+.album-link{
+    text-decoration: none;
+    color: white;
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+
+.content h4 {
+    margin: 0;
+    padding: 10px;
+}
+
+
+.album-image {
+    border-radius: 4px;
+    height: 80%;
+    width: 100%;
+}
