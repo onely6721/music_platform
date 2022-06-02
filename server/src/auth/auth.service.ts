@@ -30,7 +30,7 @@ export class AuthService {
         const candidate = await this.usersService.findByEmail(userDto.email)
         console.log(candidate)
         if (candidate) {
-            throw new HttpException("Пользователь с таким мілом существует", HttpStatus.BAD_REQUEST);
+            throw new HttpException("Пользователь с таким email существует", HttpStatus.BAD_REQUEST);
         }
         const hashPassword = await bcrypt.hash(userDto.password, 5)
         const user = await this.usersService.createUser({...userDto, password: hashPassword})
