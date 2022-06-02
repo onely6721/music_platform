@@ -18,7 +18,6 @@ function LoginPage() {
     const handleSubmit = () => {
         const { email, password } = userData
         dispatch(login({email :email, password: password }))
-        console.log("Окей")
     }
 
     return (
