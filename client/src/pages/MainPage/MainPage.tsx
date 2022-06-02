@@ -5,6 +5,7 @@ import {albumAPI} from "../../service/AlbumService";
 import {IAlbum} from "../../types/album";
 import './index.css'
 import Test from "../../components/test/test";
+import LoginPage from "../LoginPage/LoginPage";
 
 
 
@@ -45,9 +46,7 @@ const MainPage: React.FC = () => {
     }
 
     return (
-        <div className="main-page">
-            {data && <AlbumList albums={data}/>}
-        </div>
+        <LoginPage/>
     );
 };
 
