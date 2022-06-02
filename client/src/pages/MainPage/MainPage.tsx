@@ -48,7 +48,6 @@ const MainPage: React.FC = () => {
         <div className="main-page">
             {data && <AlbumList albums={data}/>}
             <button onClick={load}>ИЩО</button>
-             <Test/>
         </div>
     );
 };

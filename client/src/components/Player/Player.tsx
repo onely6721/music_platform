@@ -137,8 +137,11 @@ export default function Player() {
                     changeCurrentTime={changeCurrentTime}
                 />
                 <div className="player-volume">
-
-                </div>
+                    <img
+                        src="https://static.wikia.nocookie.net/naruto/images/5/53/Itachi_Using_Genjutsu.png/revision/latest?cb=20200325003853&path-prefix=ru"
+                        alt=""
+                    />
+                </div>  
             </div>
     );
 }

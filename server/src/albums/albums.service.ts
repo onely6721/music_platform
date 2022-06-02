@@ -3,8 +3,7 @@ import {Model, ObjectId} from "mongoose";
 import {InjectModel} from "@nestjs/mongoose";
 import {FileService, FileType} from "../file/file.service";
 import {Album, AlbumDocument} from "./schemas/album.schema"
-import {TrackDocument} from "../users/schemas/user.service";
-import {Track} from "../tracks/schemas/track.schema";
+import {Track, TrackDocument} from "../tracks/schemas/track.schema";
 import {CreateAlbumDto} from "./dto/create.dto";
 
 @Injectable()

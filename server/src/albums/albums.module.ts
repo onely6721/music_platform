@@ -4,8 +4,7 @@ import {FileService} from "../file/file.service";
 import {Album, AlbumSchema} from "./schemas/album.schema";
 import {AlbumsController} from "./albums.controller";
 import {AlbumsService} from "./albums.service";
-import {TrackSchema} from "../users/schemas/user.service";
-import {Track} from "../tracks/schemas/track.schema";
+import {Track, TrackSchema} from "../tracks/schemas/track.schema";
 
 @Module({
     imports: [

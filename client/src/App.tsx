@@ -7,12 +7,10 @@ import {useRoutes} from "./routes";
 import {BrowserRouter as Router} from "react-router-dom"
 
 function App() {
-    const {pause, activeTrack} = useAppSelector((state) => state.playerReducer)
-    const dispatch = useAppDispatch()
     const routes = useRoutes()
-    const {data: tracks} = trackAPI.useFetchAllTracksQuery()
-    const {data: albums} = albumAPI.useFetchAllAlbumsQuery()
+    useEffect(() => {
 
+    }, [])
     return (
         <div className="App">
             <Router>
