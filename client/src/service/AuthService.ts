@@ -17,7 +17,7 @@ import axios from "axios";
             const response = await axios.post("http://localhost:8000/auth/registration", {name: username, email, password})
             return response.data
         } catch (e:any) {
-            console.log(e.message)
+            throw new Error("Error")
         }
     }
 
