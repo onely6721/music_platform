@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import './styles.css'
 import {useAppDispatch} from "../../store/hooks/redux";
-import {login} from "../../store/reducers/AuthSlice";
+import {login} from "../../store/actions/UserActionCreator";
+
 
 function LoginPage() {
     const [userData, setUserData] = useState<{email:string, password:string}>({email: "", password:"123"})

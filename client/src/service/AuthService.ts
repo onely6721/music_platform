@@ -8,7 +8,7 @@ import axios from "axios";
             localStorage.setItem("user", JSON.stringify(response.data));
             return response.data
         } catch (e:any) {
-            console.log(e.message)
+            throw new Error("Unauth")
         }
     }
 
