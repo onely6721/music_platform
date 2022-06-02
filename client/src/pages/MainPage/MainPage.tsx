@@ -47,7 +47,6 @@ const MainPage: React.FC = () => {
     return (
         <div className="main-page">
             {data && <AlbumList albums={data}/>}
-            <button onClick={load}>ИЩО</button>
         </div>
     );
 };
