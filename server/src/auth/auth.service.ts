@@ -14,6 +14,8 @@ export class AuthService {
 
     async validateUser(email: string, pass: string): Promise<any> {
         const user = await this.usersService.findByEmail(email);
+        if (!user)
+            throw new UnauthorizedException({message: "Не корректные данные"})
         const passwordEquals = await bcrypt.compare(pass, user.password)
         if (user && passwordEquals) {
             return user;

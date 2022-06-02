@@ -1,10 +1,12 @@
 import {combineReducers, configureStore, createReducer} from '@reduxjs/toolkit'
 import playerReducer from './reducers/PlayerSlice'
+import authReducer from './reducers/AuthSlice'
 import {trackAPI} from "../service/TrackService";
 import {albumAPI} from "../service/AlbumService";
 import {composeWithDevTools} from "@reduxjs/toolkit/dist/devtoolsExtension";
 
 const rootReducer = combineReducers({
+    authReducer,
     playerReducer,
     [trackAPI.reducerPath]: trackAPI.reducer,
     [albumAPI.reducerPath]: albumAPI.reducer
