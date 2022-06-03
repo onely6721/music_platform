@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './index.css'
 import {useAppDispatch} from "../../store/hooks/redux";
 import {login, register} from "../../store/actions/UserActionCreator";
+import {Link} from "react-router-dom";
 
 function RegistrationPage() {
     const [userData, setUserData] =
@@ -25,10 +26,11 @@ function RegistrationPage() {
         <div>
             <div className="register-component">
                 <div className="form">
-                    <h3>Sign in</h3>
+                    <h3>Sign up</h3>
                     <input name="username" type="text" placeholder="Enter username" onChange={handleInput}/>
                     <input name="email" type="text" placeholder="Enter email" onChange={handleInput}/>
                     <input name="password" type="password" placeholder="Enter password" onChange={handleInput}/>
+                    <Link to="/"> Sign in </Link>
                     <button onClick={handleSubmit}>Принять</button>
                 </div>
             </div>

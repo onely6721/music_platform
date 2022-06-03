@@ -1,6 +1,6 @@
 .album-item{
-    width: 15%;
-    height: 220px;
+    width: 10%;
+    height: 140px;
     background: #181818;
     border-radius:4px;
     padding: 10px;
@@ -24,7 +24,7 @@
 
 .content h4 {
     margin: 0;
-    padding: 10px;
+    padding-bottom: 10px;
 }
 
 

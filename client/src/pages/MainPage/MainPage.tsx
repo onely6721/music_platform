@@ -6,6 +6,9 @@ import {IAlbum} from "../../types/album";
 import './index.css'
 import Test from "../../components/test/test";
 import LoginPage from "../LoginPage/LoginPage";
+import RegistrationPage from "../RegistrationPage/RegistrationPage";
+import {useAppDispatch} from "../../store/hooks/redux";
+import {logout} from "../../store/actions/UserActionCreator";
 
 
 
@@ -13,6 +16,7 @@ const MainPage: React.FC = () => {
     const [page, setPage] = useState(0)
     const {data: albums, isLoading, isError, error} = albumAPI.useFetchAllAlbumsQuery(page)
     const [data, setData] = useState<IAlbum[]>([])
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         if(albums) {
@@ -32,6 +36,9 @@ const MainPage: React.FC = () => {
             setPage(page + 1)
         }
     }
+    const handleLogout = (e:any) => {
+        dispatch(logout())
+    }
 
     if(isLoading) {
         return <div>Загрузка</div>
@@ -46,7 +53,10 @@ const MainPage: React.FC = () => {
     }
 
     return (
-        <LoginPage/>
+        <div className="main-page">
+            {data && <AlbumList albums={data}/>}
+            <button onClick={handleLogout}> Logout</button>
+        </div>
     );
 };
 

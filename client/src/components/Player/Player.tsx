@@ -11,12 +11,14 @@ import {
     nextTrack, prevTrack
 } from "../../store/reducers/PlayerSlice";
 import PlayerTimeControl from "../PlayerTimeControl/PlayerTimeControl";
+import {trackAPI} from "../../service/TrackService";
 
 
 
 let audio:any;
 export default function Player() {
     const {pause, activeTrack, volume, currentTime, indexTrack, activeAlbum, duration} = useAppSelector((state) => state.playerReducer)
+    const [addListen, {}] = trackAPI.useAddListenToTrackMutation()
     const dispatch = useAppDispatch()
 
 
@@ -40,13 +42,19 @@ export default function Player() {
     }, [pause])
 
     useEffect(() => {
-        audio.addEventListener('ended', () => {
+        const setNextTrack = async () => {
+            console.log(activeTrack)
+            if(activeTrack){
+                await addListen(activeTrack._id)
+            }
             if(activeAlbum) {
                 dispatch(nextTrack())
                 dispatch(setActiveTrack(activeAlbum.tracks[indexTrack+1]))
                 dispatch(setCurrentTime(1))
             }
-
+        }
+        audio.addEventListener('ended',  () => {
+            setNextTrack().then()
         });
 
         return () => {
@@ -54,7 +62,9 @@ export default function Player() {
                 alert("end")
             });
         };
-    }, [activeAlbum]);
+    }, [activeAlbum, activeTrack]);
+
+
 
     const setAudio = () => {
         if(activeTrack) {
@@ -136,12 +146,6 @@ export default function Player() {
                     right={currentTime}
                     changeCurrentTime={changeCurrentTime}
                 />
-                <div className="player-volume">
-                    <img
-                        src="https://static.wikia.nocookie.net/naruto/images/5/53/Itachi_Using_Genjutsu.png/revision/latest?cb=20200325003853&path-prefix=ru"
-                        alt=""
-                    />
-                </div>  
             </div>
     );
 }

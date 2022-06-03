@@ -14,6 +14,12 @@ export const trackAPI = createApi({
         }),
         fetchOneTrack: build.query<ITrack, string>({
             query: (id) => `tracks/${id}`
+        }),
+        addListenToTrack: build.mutation<ITrack, string>({
+            query: (id) => ({
+                url: `tracks/listens/${id}`,
+                method: "POST"
+            })
         })
     })
 })
