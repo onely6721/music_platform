@@ -28,9 +28,20 @@ export class AlbumsService {
     }
 
     async create(dto:CreateAlbumDto, picture): Promise<Album> {
-        const picturePath = this.fileService.createFile(FileType.IMAGE, picture);
-        const album = await this.albumModel.create({...dto, picture: picturePath})
-        return album;
+        try {
+            if (picture) {
+                const picturePath = this.fileService.createFile(FileType.IMAGE, picture);
+                const album = await this.albumModel.create({...dto, picture: picturePath})
+                return album;
+            } else {
+                const album = await this.albumModel.create({...dto})
+                return album;
+            }
+
+        } catch (e) {
+            console.log(e.message)
+        }
+
     }
 
     async update() {

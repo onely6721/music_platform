@@ -6,8 +6,7 @@ import {login, logout, register} from "../actions/UserActionCreator";
 
 
 let user = localStorage.getItem("user")
-if (user)
-    JSON.parse(user)
+
 
 
 interface UserState {

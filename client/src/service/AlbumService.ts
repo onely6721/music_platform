@@ -10,6 +10,7 @@ export const albumAPI = createApi({
     baseQuery: fetchBaseQuery({baseUrl: "http://localhost:8000/",
         prepareHeaders: (headers, { getState }) => {
             const token = (getState() as RootState).authReducer.user
+            console.log(token)
             if (token) {
                 headers.set('authorization', `Bearer ${token}`)
             }
@@ -25,7 +26,15 @@ export const albumAPI = createApi({
         }),
         fetchOwnPlaylists: build.query<IAlbum[], void>({
             query: () =>  'albums/myPlaylists',
+        }),
+        createNewPlaylist: build.mutation<IAlbum, IAlbum>({
+            query: (playlist) => ({
+                url: 'albums/',
+                method: 'POST',
+                body: playlist
+            })
         })
+
     })
 })
 

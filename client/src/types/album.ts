@@ -1,11 +1,11 @@
 import {ITrack} from "./track";
 
 export interface IAlbum {
-    _id: string;
+    _id?: string;
     name: string;
-    owner: string;
+    owner?: string;
     tracks: ITrack[];
-    picture: string;
-    uploadDate: string;
+    picture?: string;
+    uploadDate?: string;
 
 }

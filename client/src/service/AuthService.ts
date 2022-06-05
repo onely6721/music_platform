@@ -5,7 +5,7 @@ import axios from "axios";
     const  login =  async (username:string, password:string) => {
         try {
             const response = await axios.post("http://localhost:8000/auth/login", {email: username, password:password})
-            localStorage.setItem("user", JSON.stringify(response.data));
+            localStorage.setItem("user", response.data);
             return response.data
         } catch (e:any) {
             throw new Error("Unauth")
