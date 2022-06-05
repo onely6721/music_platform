@@ -24,7 +24,10 @@ const AlbumItem:React.FC<AlbumItemProps> = ({album}) => {
     return (
             <div className="album-item" onClick={handleClick}>
                 <div className="content">
-                    <img src={"http://localhost:8000/" + album.picture} alt="" className="album-image"/>
+                    {album.picture
+                        ? <img src={"http://localhost:8000/" + album.picture} alt="" className="album-image"/>
+                        : <img src={"https://play-lh.googleusercontent.com/mOkjjo5Rzcpk7BsHrsLWnqVadUK1FlLd2-UlQvYkLL4E9A0LpyODNIQinXPfUMjUrbE"} alt="" className="album-image"/>
+                    }
                      <h4>{album.name}</h4>
                 </div>
             </div>

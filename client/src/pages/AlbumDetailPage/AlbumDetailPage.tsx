@@ -33,7 +33,10 @@ const AlbumDetailPage = () => {
         <div className="album-detail">
             {album &&
                 <div className="album-head">
-                    <img src={"http://localhost:8000/" + album.picture} className={"album-detail-img"} alt=""/>
+                    {album.picture
+                        ? <img src={"http://localhost:8000/" + album.picture} alt="" className="album-detail-img"/>
+                        : <img src={"https://play-lh.googleusercontent.com/mOkjjo5Rzcpk7BsHrsLWnqVadUK1FlLd2-UlQvYkLL4E9A0LpyODNIQinXPfUMjUrbE"} alt="" className="album-detail-img"/>
+                    }
                     <div className={"album-detail-name"}>
                         <p>Album</p>
                         <h1>{album.name}</h1>

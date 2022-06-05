@@ -56,7 +56,7 @@ const MainPage: React.FC = () => {
     return (
         <div className="main-page">
             <SideBar/>
-            <div style={{width: "70%"}}>
+            <div style={{width: "75%"}}>
                 {data && <AlbumList albums={data}/>}
                 <button onClick={handleLogout}> Logout</button>
             </div>
