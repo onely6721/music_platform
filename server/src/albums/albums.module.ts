@@ -5,9 +5,12 @@ import {Album, AlbumSchema} from "./schemas/album.schema";
 import {AlbumsController} from "./albums.controller";
 import {AlbumsService} from "./albums.service";
 import {Track, TrackSchema} from "../tracks/schemas/track.schema";
+import {AuthService} from "../auth/auth.service";
+import {AuthModule} from "../auth/auth.module";
 
 @Module({
     imports: [
+        AuthModule,
         MongooseModule.forFeature([{name:  Album.name, schema: AlbumSchema}]),
         MongooseModule.forFeature([{name:  Track.name, schema: TrackSchema}]),
     ],

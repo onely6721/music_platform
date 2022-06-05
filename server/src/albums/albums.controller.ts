@@ -6,14 +6,15 @@ import {
     Param,
     Post,
     Put,
-    Query,
-    UploadedFile,
+    Query, Req, Request,
+    UploadedFile, UseGuards,
     UseInterceptors
 } from '@nestjs/common';
 import {ObjectId} from "mongoose";
 import {FileInterceptor} from "@nestjs/platform-express";
 import {AlbumsService} from "./albums.service";
 import {CreateAlbumDto} from "./dto/create.dto";
+import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 
 
 @Controller('/albums')
@@ -31,10 +32,12 @@ export class AlbumsController {
         return this.trackService.getOne(id)
     }
 
+    @UseGuards(JwtAuthGuard)
     @Post()
     @UseInterceptors(FileInterceptor('picture'))
-    create(@UploadedFile() file: Express.Multer.File,  @Body() dto:CreateAlbumDto) {
-        return this.trackService.create(dto, file)
+    create(@UploadedFile() file: Express.Multer.File,  @Body() dto:CreateAlbumDto, @Request() req) {
+        console.log(req.user)
+        return this.trackService.create({...dto, owner: req.user._id}, file)
     }
 
 

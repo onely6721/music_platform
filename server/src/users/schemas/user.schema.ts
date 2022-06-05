@@ -4,8 +4,10 @@ import * as mongoose from 'mongoose';
 import {Track} from "../../tracks/schemas/track.schema";
 export type UserDocument = User & Document;
 
+
 @Schema()
 export class User {
+
     @Prop()
     name: string;
 

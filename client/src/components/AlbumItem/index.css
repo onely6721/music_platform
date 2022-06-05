@@ -5,6 +5,7 @@
     border-radius:4px;
     padding: 10px;
     margin: 10px;
+    font-size: 12px;
 }
 
 .album-item:hover{

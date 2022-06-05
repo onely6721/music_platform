@@ -14,10 +14,19 @@ export class Album {
     owner: User
 
     @Prop()
+    artists: String[];
+
+    @Prop()
     picture: string;
 
     @Prop({type: [{type: mongoose.Schema.Types.ObjectId, ref: 'Track'}]})
     tracks: Track[]
+
+    @Prop({
+        type: Boolean,
+        default: false,
+    })
+    isPlaylist: boolean;
 
     @Prop({
         type: Date,

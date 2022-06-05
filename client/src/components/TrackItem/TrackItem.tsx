@@ -1,13 +1,13 @@
 import React from 'react';
 import {ITrack} from "../../types/track";
-import {trackAPI} from "../../service/TrackService";
 import './index.css'
-import {Box, Grid} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import PauseIcon from "@mui/icons-material/Pause";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import {pauseTrack, playTrack, setActiveTrack, setCurrentTime, setIndexTrack} from "../../store/reducers/PlayerSlice";
 import {useAppDispatch, useAppSelector} from "../../store/hooks/redux";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export interface TrackItemProps {
     track: ITrack;
@@ -47,6 +47,9 @@ const TrackItem: React.FC<TrackItemProps> = ({track, index=0}) => {
                     </div>
                 </div>
             </div>
+            <IconButton style={{color:"white"}}>
+                <FavoriteBorderIcon/>
+            </IconButton>
             <div style={{fontSize: 10}}>
                 {track.listens}
             </div>
