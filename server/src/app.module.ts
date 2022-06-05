@@ -8,7 +8,6 @@ import {ServeStaticModule} from "@nestjs/serve-static";
 import {AlbumsModule} from "./albums/albums.module";
 import { AuthModule } from './auth/auth.module';
 import {UsersModule} from "./users/users.module";
-import { PlaylistsModule } from './playlists/playlists.module';
 
 @Module({
   imports: [
@@ -20,7 +19,6 @@ import { PlaylistsModule } from './playlists/playlists.module';
       FileModule,
       AuthModule,
       UsersModule,
-      PlaylistsModule,
 
   ],
 

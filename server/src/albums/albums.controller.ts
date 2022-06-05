@@ -19,17 +19,23 @@ import {JwtAuthGuard} from "../auth/guards/jwt-auth.guard";
 
 @Controller('/albums')
 export class AlbumsController {
-    constructor(private trackService: AlbumsService) {}
+    constructor(private albumService: AlbumsService) {}
 
 
     @Get()
     getAll(@Query('limit') limit: number, @Query('page') page:number) {
-        return this.trackService.getAll(limit, page)
+        return this.albumService.getAll(limit, page)
+    }
+
+    @UseGuards(JwtAuthGuard)
+    @Get('/myPlaylists')
+    getMyPlaylists(@Request() req) {
+        return this.albumService.getMyPlaylists(req.user._id)
     }
 
     @Get(':id')
     getOne(@Param('id') id: ObjectId) {
-        return this.trackService.getOne(id)
+        return this.albumService.getOne(id)
     }
 
     @UseGuards(JwtAuthGuard)
@@ -37,13 +43,14 @@ export class AlbumsController {
     @UseInterceptors(FileInterceptor('picture'))
     create(@UploadedFile() file: Express.Multer.File,  @Body() dto:CreateAlbumDto, @Request() req) {
         console.log(req.user)
-        return this.trackService.create({...dto, owner: req.user._id}, file)
+        return this.albumService.create({...dto, owner: req.user._id}, file)
     }
+
 
 
     @Delete(':id')
     delete(@Param('id') id: ObjectId) {
-        return this.trackService.delete(id)
+        return this.albumService.delete(id)
     }
 
     @Post('/addTrack/:id')
@@ -51,7 +58,7 @@ export class AlbumsController {
         @Param('id') id: ObjectId,
         @Query('trackId') trackId: ObjectId)
     {
-        return this.trackService.addTrack(id, trackId)
+        return this.albumService.addTrack(id, trackId)
     }
 
 }

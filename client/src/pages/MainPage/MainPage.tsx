@@ -9,6 +9,7 @@ import LoginPage from "../LoginPage/LoginPage";
 import RegistrationPage from "../RegistrationPage/RegistrationPage";
 import {useAppDispatch} from "../../store/hooks/redux";
 import {logout} from "../../store/actions/UserActionCreator";
+import SideBar from "../../components/SideBar/SideBar";
 
 
 
@@ -54,8 +55,11 @@ const MainPage: React.FC = () => {
 
     return (
         <div className="main-page">
-            {data && <AlbumList albums={data}/>}
-            <button onClick={handleLogout}> Logout</button>
+            <SideBar/>
+            <div style={{width: "70%"}}>
+                {data && <AlbumList albums={data}/>}
+                <button onClick={handleLogout}> Logout</button>
+            </div>
         </div>
     );
 };

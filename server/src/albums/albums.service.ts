@@ -22,6 +22,10 @@ export class AlbumsService {
         return album
     }
 
+    async getMyPlaylists(userId: string) {
+        const playlists = await this.albumModel.find({owner: userId})
+        return playlists
+    }
 
     async create(dto:CreateAlbumDto, picture): Promise<Album> {
         const picturePath = this.fileService.createFile(FileType.IMAGE, picture);
